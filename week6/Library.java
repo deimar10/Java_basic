@@ -22,7 +22,7 @@ public class Library {
     public ArrayList<Book> searchByTitle(String title) {
         ArrayList<Book> found = new ArrayList<Book>();
         for (Book book : this.books) {
-            if (book.title().equals(title)) {
+            if(StringUtils.included(book.title(), title)) {
                 found.add(book);
             }
         }
@@ -34,8 +34,9 @@ public class Library {
     public ArrayList<Book> searchByPublisher(String publisher) {
         ArrayList<Book> found = new ArrayList<Book>();
         for (Book book : this.books) {
-            if (book.publisher().equals(publisher)) {
+            if (book.publisher().equals(publisher.trim())) {
                 found.add(book);
+
             }
         }
         // iterate the list of books and add all the matching books to the list found
